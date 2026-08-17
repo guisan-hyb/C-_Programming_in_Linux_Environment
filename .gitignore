@@ -1,0 +1,106 @@
+# ==========================================
+# 1. CMake 生成的文件和目录 (核心重点)
+# ==========================================
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+CMakeScripts/
+CTestTestfile.cmake
+dependencies/
+install_manifest.txt
+compile_commands.json  # clangd 会自动生成，一般不上传，团队成员可自己生成
+CMakeUserPresets.json  # CMake 用户本地预设，包含本地路径，绝不共享
+
+# ==========================================
+# 2. C++ 编译产物
+# ==========================================
+# 目标文件
+*.o
+*.obj
+*.ko
+
+# 静态库和动态库
+*.a
+*.so
+*.so.*
+*.dylib
+*.lib
+*.dll
+
+# 可执行文件 (Linux下通常无后缀，Windows下是.exe)
+*.exe
+*.out
+*.app
+
+# 预编译头
+*.gch
+*.pch
+
+# ==========================================
+# 3. 调试与性能分析产物
+# ==========================================
+# GDB 调试历史
+.gdb_history
+
+# Linux 核心转储 文件
+core
+core.*
+
+# Valgrind 输出
+*.valgrind
+vgcore.*
+callgrind.out.*
+cachegrind.out.*
+
+# ==========================================
+# 4. 操作系统生成的垃圾文件
+# ==========================================
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+ $RECYCLE.BIN/
+
+# ==========================================
+# 5. IDE 与编辑器配置
+# ==========================================
+# VS Code (本地配置，包含你的本地调试路径，不应上传)
+.vscode/*
+# !.vscode/settings.json  # 如果你们团队要共享某些通用设置，可取消此行注释
+# !.vscode/tasks.json     # 如果共享通用任务，取消注释
+# !.vscode/launch.json    # 强烈不建议共享 launch.json，因为每个人的端口/路径常不同
+# !.vscode/extensions.json # 如果要推荐统一安装的插件，取消注释
+
+# CLion / IntelliJ
+.idea/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ==========================================
+# 6. 其他常见需忽略的文件
+# ==========================================
+# 日志文件
+*.log
+
+# 环境变量或包含敏感信息的文件
+.env
+.env.local
