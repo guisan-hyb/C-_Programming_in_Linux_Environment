@@ -104,3 +104,5 @@ Desktop.ini
 # 环境变量或包含敏感信息的文件
 .env
 .env.local
+
+build/
