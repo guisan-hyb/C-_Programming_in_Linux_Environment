@@ -24,7 +24,7 @@ int main(){
     }
 
     // 每次读取的对象为1个字节，读取5个对象
-    while(bytes_read = fread(buf,1,5,fp) > 0){
+    while((bytes_read = fread(buf,1,5,fp)) > 0){
         //.表示输出的精度,后面跟着*表示精度由额外的参数指定
         // 而不是在字符串中直接给出
         printf("%.*s", bytes_read, buf);
