@@ -269,6 +269,17 @@ int IOThread::read_head_data(std::shared_ptr<Session> sess){
         return IO_ERROR;
     }
 
+    // 特判body_len == 0
+    if(body_len == 0){
+        sess->Send("", msg_type);
+
+        sess->_data_buf = NULL;
+        sess->_recv_stage = NO_RECV;
+        memset(sess->_head_buf->_buf, 0, HEAD_LEN);
+        sess->_head_buf->_offset = 0;
+        return IO_CONTINUE;
+    }
+
     //数据接收正常
     sess->_recv_stage = BODY_RECVING;
     sess->_head_buf->_offset += read_len;

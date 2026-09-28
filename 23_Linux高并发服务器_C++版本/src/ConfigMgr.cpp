@@ -51,7 +51,7 @@ bool ConfigMgr::loadFromFile(const std::string &filepath){
         trim(key);
         trim(val);
         if(!_section.empty()){
-            key = _section + ":" + key;
+            key = _section + "." + key;
         }
         _kv[key] = val;
     }

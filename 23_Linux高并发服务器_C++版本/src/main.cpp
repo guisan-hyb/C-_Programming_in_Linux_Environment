@@ -7,7 +7,10 @@ static Server* g_server = nullptr;
 
 // 信号处理函数
 void signal_handler(int sig){
-
+    if(g_server){
+        std::cout << "\nReceived signal " << sig << ", stopping server...\n";
+        g_server->stop();
+    }
 }
 
 int main(){

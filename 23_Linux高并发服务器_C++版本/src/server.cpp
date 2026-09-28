@@ -113,7 +113,7 @@ bool Server::create_and_bind(int port){
 int Server::set_nonblocking(int fd){
     int flags = fcntl(fd, F_GETFL, 0);
     if(flags == -1) return -1;
-    return fcntl(fd, F_SETFL, flags);
+    return fcntl(fd, F_SETFL, flags | O_NONBLOCK);
 }
 
 void Server::run(){
